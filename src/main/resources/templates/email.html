@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(213, 178, 147);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .email-header {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .email-header img {
+            background-image: url('https://images.wallpaperscraft.com/image/single/tulips_bouquet_vase_113921_2560x1600.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        .email-content {
+            background-color: rgba(125, 58, 187, 0.41);
+            border-radius: 0px;
+            padding: 0;
+            margin:0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #8636d0;
+        }
+
+        p {
+            font-size: 20px;
+            color: #6d38d5;
+        }
+    </style>
 </head>
 <body>
-
+<div class="email-header" >
+    <img src="https://images.wallpaperscraft.com/image/single/tulips_bouquet_vase_113921_2560x1600.jpg" alt="Header Image">
+</div>
+<div class="email-content" >
+    $BODY_CONTENT$
+</div>
 </body>
 </html>

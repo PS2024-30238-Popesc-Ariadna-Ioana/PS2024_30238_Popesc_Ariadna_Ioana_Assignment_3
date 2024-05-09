@@ -6,9 +6,8 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class MessageDto {
-    private String status;
+    // private String status;
 
     private String message;
 }

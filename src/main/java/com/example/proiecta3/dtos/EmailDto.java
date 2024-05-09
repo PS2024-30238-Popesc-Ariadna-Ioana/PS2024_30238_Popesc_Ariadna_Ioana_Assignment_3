@@ -11,9 +11,8 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Data
 public class EmailDto implements Serializable {
-    @NotNull
     private String id;
 
     @NotBlank
