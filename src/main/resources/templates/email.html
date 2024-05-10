@@ -16,6 +16,7 @@
         .email-header {
             margin-bottom: 0;
             padding-bottom: 0;
+            position: relative; /* Setează poziția relativă pentru a folosi absolute în cadrul acestui container */
         }
 
         .email-header img {
@@ -29,16 +30,31 @@
         }
 
         .email-content {
-            background-color: rgba(125, 58, 187, 0.41);
+            background-color: rgba(125, 58, 187, 0.46);
             border-radius: 0px;
             padding: 0;
             margin:0;
             text-align: center;
+            position: relative; /* Setează poziția relativă pentru a folosi absolute în cadrul acestui container */
         }
+
+        .email-content .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            text-align: center; /* Aliniază textul în centru */
+            width: 100%; /* Asigură ca textul să aibă lățimea de 100% a containerului */
+            box-sizing: border-box; /* Asigură că padding-ul și border-ul nu cresc lățimea containerului */
+            padding: 20px; /* Adaugă un mic padding pentru estetică */
+        }
+
 
         h1 {
             font-size: 24px;
-            color: #8636d0;
+            color: rgba(134, 54, 208, 0.82);
         }
 
         p {
@@ -48,11 +64,11 @@
     </style>
 </head>
 <body>
-<div class="email-header" >
+<div class="email-header">
     <img src="https://images.wallpaperscraft.com/image/single/tulips_bouquet_vase_113921_2560x1600.jpg" alt="Header Image">
 </div>
-<div class="email-content" >
-    $BODY_CONTENT$
+<div class="email-content">
+    <div class="centered-text">$BODY_CONTENT$</div>
 </div>
 </body>
 </html>

@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/email")
 @AllArgsConstructor
 public class EmailController {
-    public static final String FIRST_TOKEN = "9d7b1f62-28e3-4a15-9c98-3ec9f8e723f1";
-    public static final String SECOND_TOKEN = "7f9da720-5148-4b47-9eb7-69e3ae11d8af";
+    public static final String token1 = "1f72e35c-4e7b-45c9-a671-4c24f77e40f9";
+    public static final String token2 = "3bdc0f64-b7d8-4b26-a72a-54fc54cb1efc";
 
-    // 9d7b1f62-28e3-4a15-9c98-3ec9f8e723f17f9da720-5148-4b47-9eb7-69e3ae11d8af
+    // 1f72e35c-4e7b-45c9-a671-4c24f77e40f93bdc0f64-b7d8-4b26-a72a-54fc54cb1efc
     private final EmailService emailService;
 
     @PostMapping("/sendEmail")
@@ -44,7 +44,7 @@ public class EmailController {
     }
 
     private boolean isTokenValid(String token){
-        String validToken = FIRST_TOKEN + SECOND_TOKEN;
+        String validToken = token1 + token2;
         String t = token.substring(7);
         return validToken.equals(t);
     }
