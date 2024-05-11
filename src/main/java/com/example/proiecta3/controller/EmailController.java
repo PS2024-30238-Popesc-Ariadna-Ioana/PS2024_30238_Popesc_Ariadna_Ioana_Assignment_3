@@ -14,17 +14,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/email")
 @AllArgsConstructor
 public class EmailController {
-    public static final String token1 = "1f72e35c-4e7b-45c9-a671-4c24f77e40f9";
-    public static final String token2 = "3bdc0f64-b7d8-4b26-a72a-54fc54cb1efc";
+    public static final String token1 = "e7f92c1b-2a9e-4f08-89fb-4c36e7e3bf2a";
+    public static final String token2 = "a3b4d098-6c1e-45fb-a9f2-cb68f9e2d1a5";
+    public static final String validToken = token1 + token2;
 
-    // 1f72e35c-4e7b-45c9-a671-4c24f77e40f93bdc0f64-b7d8-4b26-a72a-54fc54cb1efc
+    // e7f92c1b-2a9e-4f08-89fb-4c36e7e3bf2aa3b4d098-6c1e-45fb-a9f2-cb68f9e2d1a5
     private final EmailService emailService;
 
+    private boolean isTokenValid(String token){
+        String t = token.substring(7);
+        return validToken.equals(t);
+    }
+
     @PostMapping("/sendEmail")
-    public ResponseEntity<MessageDto> sendEmail(
-            @RequestHeader("Authorization") String token,
-            @Valid @RequestBody EmailDto emailDto,
-            BindingResult bindingResult) {
+    public ResponseEntity<MessageDto> sendEmailToExternalService(@RequestHeader("Authorization") String token, @Valid @RequestBody EmailDto emailDto, BindingResult bindingResult) {
 
         MessageDto messageDto = new MessageDto();
 
@@ -38,14 +41,8 @@ public class EmailController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageDto);
         }
 
-        emailService.sendEmail(emailDto);
+        emailService.sendEmailToExternalService(emailDto);
         messageDto.setMessage("Email successfully sent!");
         return ResponseEntity.status(HttpStatus.OK).body(messageDto);
-    }
-
-    private boolean isTokenValid(String token){
-        String validToken = token1 + token2;
-        String t = token.substring(7);
-        return validToken.equals(t);
     }
 }

@@ -22,7 +22,7 @@ public class EmailService {
     private final JavaMailSender emailSender;
     private final EmailRepository emailRepository;
 
-    public void sendEmail(EmailDto emailDto) {
+    public void sendEmailToExternalService(EmailDto emailDto) {
         try {
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);

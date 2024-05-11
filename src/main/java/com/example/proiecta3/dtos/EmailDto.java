@@ -18,13 +18,13 @@ public class EmailDto implements Serializable {
     @NotBlank
     private String nume;
 
-    @NotNull
+    @NotBlank
     private String subiect;
 
     @NotNull
     @Email(message = "The format for the email is invalid!!!")
     private String email;
 
-    @NotNull
+    @NotBlank
     private String body;
 }

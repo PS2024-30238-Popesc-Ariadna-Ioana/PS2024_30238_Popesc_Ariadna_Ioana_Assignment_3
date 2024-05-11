@@ -20,7 +20,7 @@ public class EmailListener {
     public void processEmailRequest(String in) { // Receive message as a String
         try {
             EmailDto emailDto = objectMapper.readValue(in, EmailDto.class);
-            emailService.sendEmail(emailDto);
+            emailService.sendEmailToExternalService(emailDto);
         } catch (Exception e) {
             e.printStackTrace();
         }
